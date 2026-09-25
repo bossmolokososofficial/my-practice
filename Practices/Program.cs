@@ -10,3 +10,19 @@
 // Возможность продолжить работу с новым текстом
 // Сохранение всей статистики в список 
 // Возможность вывести статистику по прошлым текстам
+
+class stats
+{
+    public void text()
+    {
+        tex1t = Console.ReadLine() ?? "";
+        if (text1.Length >= 100)
+        {
+            
+        }
+        else
+        {
+            Console.WriteLine("You need to enter a number between higher than a 100");
+        }
+    }
+}
