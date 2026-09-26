@@ -15,9 +15,21 @@ class stats
 {
     public void text()
     {
-        tex1t = Console.ReadLine() ?? "";
+        string text1 = Console.ReadLine() ?? "";
+        text1.ToLowerInvariant();
+        int words = 1;
         if (text1.Length >= 100)
         {
+            for (int i = 0; i < text1.Length; i++)
+            {
+                if (text1[i] == ' ' && text1[i + 1] != ' ')
+                {
+                    words++;
+                    
+                }
+                
+                
+            }
             
         }
         else
