@@ -49,7 +49,34 @@ class stats
         char[] characters = lowerText.ToCharArray();
         for (int i = 0; i < characters.Length; i++)
         {
-            characters[i] = ' ';
+            if (!char.IsLetter(characters[i]))
+            {
+                characters[i] = ' ';
+            }
+            
         }
+        string onlyWords = new string(characters);
+        string[] words = onlyWords.Split(' ');
+        result.Longest = "";
+        result.Shortest = "";
+        if (words.Length > 0)
+        {
+            result.Shortest = words[0];
+            result.Longest = words[0];
+            for (int i = 1; i < words.Length; i++)
+            {
+                if (words[i].Length < result.Shortest.Length)
+                {
+                    result.shortest = words[i];
+                }
+
+                if (words[i].Length > result.Longest.Length)
+                {
+                    result.Longest = words[i];
+                }
+            }
+        }
+        
+        
     }
 }
