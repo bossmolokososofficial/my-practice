@@ -11,3 +11,14 @@
 // Сохранение всей статистики в список 
 // Возможность вывести статистику по прошлым текстам
 
+class textResult
+{
+    public string Text;
+    public int Words;
+    public string Shortest;
+    public string Longest;
+    public int Sentences;
+    public int Vowels;
+    public int Consonants;
+    public Dictionary<char, int> Letters = new Dictionary<char, int>();
+}
