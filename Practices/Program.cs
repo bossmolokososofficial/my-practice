@@ -27,3 +27,17 @@ class Product
         Category = category;
     }
 }
+class Store
+{
+    private List<Product> products = new List<Product>();
+    private int nextCode = 1006;
+
+    public Store()
+    {
+        products.Add(new Product("1001", "Хлеб", 70, 10, Category.Food));
+        products.Add(new Product("1002", "Молоко", 110, 15, Category.Drinks));
+        products.Add(new Product("1003", "Клавиатура", 3500, 4, Category.Electronics));
+        products.Add(new Product("1004", "Футболка", 1800, 7, Category.Clothes));
+        products.Add(new Product("1005", "Сок", 150, 0, Category.Drinks));
+    }
+}
