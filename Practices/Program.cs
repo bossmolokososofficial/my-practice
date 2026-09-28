@@ -11,30 +11,3 @@
 // Сохранение всей статистики в список 
 // Возможность вывести статистику по прошлым текстам
 
-class stats
-{
-    public void text()
-    {
-        string text1 = Console.ReadLine() ?? "";
-        text1.ToLowerInvariant();
-        int words = 1;
-        if (text1.Length >= 100)
-        {
-            for (int i = 0; i < text1.Length; i++)
-            {
-                if (text1[i] == ' ' && text1[i + 1] != ' ')
-                {
-                    words++;
-                    
-                }
-                
-                
-            }
-            
-        }
-        else
-        {
-            Console.WriteLine("You need to enter a number between higher than a 100");
-        }
-    }
-}
