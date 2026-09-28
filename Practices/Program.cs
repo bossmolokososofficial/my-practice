@@ -1,55 +1,29 @@
-﻿// Необходимо написать программу, которая будет принимать текст от пользователя и делать над ним определённые действия.
-// Функциональные требования:
-// Программа принимает от пользователя минимум 100 символов
-// Подсчёт количества слов в тексте
-// Поиск самого короткого слова
-// Подсчёт количества предложений
-// Подсчёт количества гласных и согласных букв
-// Поиск самого длинного слова
-// Создание статистики по частоте встречаемости каждой буквы
-// Возможность продолжить работу с новым текстом
-// Сохранение всей статистики в список 
-// Возможность вывести статистику по прошлым текстам
-using System;
-using System.Collections.Generic;
-class textResult
+﻿enum Category
 {
-    public string Text;
-    public int Words;
-    public string Shortest;
-    public string Longest;
-    public int Sentences;
-    public int Vowels;
-    public int Consonants;
-    public Dictionary<char, int> Letters = new Dictionary<char, int>();
+    Food = 1,
+    Drink,
+    Electronics,
+    Clothes
 }
-
-class stats
+    
+class Product
 {
-    private List<TextResult> history = new List<TextResult>();
+    public string Code { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    public int Count { get; set; }
+    public Category Category { get; set; }
 
-    public void text()
+    public bool InStock
     {
-        string text1;
-        while (true)
-        {
-            Console.WriteLine("Введите текст не менее 100 символов:");
-            text1 = Console.ReadLine();
-            
-            if (text1 == null)
-                return;
-            if (text1.Length > 100)
-                break;
-            Console.WriteLine($"Вы ввели {text1.Length} символов. А нужно минимум 100!");
-        }
-
-        TextResult result = new TextResult();
-        result.Text = text1;
-        string lowerText = text1.ToLowerInvariant();
-        char[] characters = lowerText.ToCharArray();
-        for (int i = 0; i < characters.Length; i++)
-        {
-            characters[i] = ' ';
-        }
+        get { return Count > 0; }
+    }
+    public Product(string code, string name, decimal price, int count, Category category)
+    {
+        Code = code;
+        Name = name;
+        Price = price;
+        Count = count;
+        Category = category;
     }
 }
