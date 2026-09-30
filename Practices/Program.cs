@@ -76,6 +76,23 @@ class stats
                 }
             }
         }
-        
+
+        string vowels = "аеёиоуыэюяaeiou";
+        string consonants = "бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxyz";
+        bool hasContent = false;
+        for (int i = 0; i < lowerText.Length; i++)
+        {
+            char symbol = lowerText[i];
+            if (vowels.IndexOf(symbol) >= 0)
+            {
+                result.Vowels++;
+            }
+            else if (consonants.IndexOf(symbol) >= 0)
+            {
+                result.Consonants++;
+            }
+            else
+        }
+
     }
 }
