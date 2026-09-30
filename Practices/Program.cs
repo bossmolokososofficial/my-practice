@@ -12,6 +12,8 @@
 // Возможность вывести статистику по прошлым текстам
 using System;
 using System.Collections.Generic;
+using System.Net.Mime;
+
 class textResult
 {
     public string Text;
@@ -115,7 +117,43 @@ class stats
                     hasContent = false;
                 }
             }
+            if (symbol == '.' || symbol == '!' || symbol == '?')
+            {
+                if (hasContent)
+                {
+                    result.Sentences++;
+                    hasContent = false;
+                }
+            }
+        }
+        history.Add(result);
+        Print(result);
+    }
+
+    public void print(TextResult result)
+    {
+        Console.WriteLine("\n--- Статистика ---");
+        Console.WriteLine($"Текст: {result.Text}");
+        Console.WriteLine($"Символов: {result.Text.Length}");
+        Console.WriteLine($"Слов: {result.Words}");
+        if (result.Words > 0)
+        {
+            Console.WriteLine($"Самое короткое слово: {result.Shortest}");
+            Console.WriteLine($"Самое длинное слово: {result.Longest}");
+        }
+        else
+        {
+            Console.WriteLine("В тексте нет слов.");
         }
 
+        Console.WriteLine($"Предложений: {result.Sentences}");
+        Console.WriteLine($"Гласных: {result.Vowels}");
+        Console.WriteLine($"Согласных: {result.Consonants}");
+        Console.WriteLine("Частота букв:");
+        foreach (var pair in result.Letters)
+        {
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
+        }
     }
+    
 }
