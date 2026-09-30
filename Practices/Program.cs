@@ -91,7 +91,30 @@ class stats
             {
                 result.Consonants++;
             }
-            else
+
+            if (char.IsLetter(symbol))
+            {
+                if (result.Letters.ContainsKey(symbol))
+                {
+                    result.Letters[symbol]++;
+                }
+                else
+                {
+                    result.Letters.Add(symbol, 1);
+                }
+            }
+            if (char.IsLetterOrDigit(symbol))
+            {
+                hasContent = true;
+            }
+            if (symbol == '.' || symbol == '!' || symbol == '?')
+            {
+                if (hasContent)
+                {
+                    result.Sentences++;
+                    hasContent = false;
+                }
+            }
         }
 
     }
